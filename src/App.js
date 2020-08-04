@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
 import DaftarBuah from './tugas11/DaftarBuah';
+import Timer from './timer/Timer';
 
 function App() {
   return(
     <div>
-      <DaftarBuah />
+      {/* tugas11 */}
+      {/* <DaftarBuah /> */}
+
+      {/* materi hari ke 2, timer component */}
+      <Timer />
     </div>
   )
 }
