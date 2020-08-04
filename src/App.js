@@ -8,7 +8,7 @@ function App() {
   return(
     <div>
       {/* tugas11 */}
-      {/* <DaftarBuah /> */}
+      <DaftarBuah />
 
       {/* materi hari ke 2, timer component */}
       {/* <Timer /> */}
