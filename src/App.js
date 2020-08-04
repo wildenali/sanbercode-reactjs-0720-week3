@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+/*
+// Latihan props
 // Cara 1
 const Halow = (props) => {
   return(
@@ -31,13 +33,15 @@ class HaloNama extends React.Component {
   }
 }
 
-
 function App() {
+  
+  // Latihan props
   var nama="Wilden"
   var namaLengkap = ["Wilden", "Ali"]
+  
   return (
+    // Latihan props
     <div className="App">
-      <h1>Cek</h1>
       <Halow namaSiapa={nama}/>
       <HaloKeles namaBebas={nama}/>
       {
@@ -48,7 +52,13 @@ function App() {
         })
       }
     </div>
+    
+   <div>
+
+   </div>
   );
 }
 
 export default App;
+*/
+
