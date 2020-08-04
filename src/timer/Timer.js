@@ -4,7 +4,7 @@ class Timer extends Component{
   constructor(props){
     super(props)
     this.state = {
-      time: 0,
+      time: 100,
     }
   }
 
@@ -17,7 +17,7 @@ class Timer extends Component{
 
   tick(){
     this.setState({
-      time: this.state.time + 1
+      time: this.state.time - 1
     })
   }
 
