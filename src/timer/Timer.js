@@ -15,6 +15,16 @@ class Timer extends Component{
     this.timerID = setInterval(() => this.tick(), 1000);
   }
 
+  componentDidUpdate(){
+    if (this.state.time < 95) {
+      this.componentWillUnmount()
+    }
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timerID)
+  }
+
   tick(){
     this.setState({
       time: this.state.time - 1
@@ -24,9 +34,11 @@ class Timer extends Component{
   render(){
     return(
       <>
-        <h1 style={{ textAlign: "center" }}>
-          {this.state.time}
-        </h1>
+        {this.state.time >= 95 &&
+          <h1 style={{ textAlign: "center" }}>
+            {this.state.time}
+          </h1>
+        }
       </>
     )
   }
