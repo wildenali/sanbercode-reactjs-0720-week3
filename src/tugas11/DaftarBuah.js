@@ -24,7 +24,10 @@ class DaftarBuah extends Component {
             {
               dataHargaBuah.map((el, index) => {
                 return(
-                  <ItemBuah item={el} key={index}/>
+                  <>
+                    {/* {console.log(el)} */}
+                    <ItemBuah item={el} key={index}/>
+                  </>
                 )
               })
             }
