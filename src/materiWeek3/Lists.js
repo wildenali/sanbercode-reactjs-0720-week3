@@ -5,7 +5,8 @@ class Lists extends Component {
   constructor(props){
     super(props)
     this.state={
-      pesertaLomba: [ 'Budi', 'Susi', 'Lala', 'Agung' ]
+      pesertaLomba: [ 'Budi', 'Susi', 'Lala', 'Agung' ],
+      inputName: ""
     }
   }
 
@@ -37,7 +38,7 @@ class Lists extends Component {
          <label>
            Masukkan nama peserta:
          </label>
-         <input type="text" />
+         <input type="text" value={this.state.inputName} onChange={this.handleChange} />
          <input type="submit" value="Submit"/>
        </form>
       </>
