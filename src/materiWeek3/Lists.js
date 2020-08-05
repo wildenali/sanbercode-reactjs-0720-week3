@@ -51,7 +51,7 @@ class Lists extends Component {
            }
          </tbody>
        </tabel>
-       <form>
+       <form onSubmit={this.handleSubmit}>
          <label>
            Masukkan nama peserta:
          </label>
