@@ -18,8 +18,11 @@ class Lists extends Component {
   }
 
   handleEdit(event){
+    console.log(event)
     let index = event.target.value
+    console.log(index)
     let peserta = this.state.pesertaLomba[index]
+    console.log(peserta)
     this.setState({inputName: peserta, indexOfForm: index})
   }
 
