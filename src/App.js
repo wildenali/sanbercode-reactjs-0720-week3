@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import DaftarBuah from './tugas11/DaftarBuah';
 import Timer from './timer/Timer';
-import HitungMundur from './tugas12/HitungMundur';
+import ClockAndHitungMundur from './tugas12/ClockAndHitungMundur';
 
 function App() {
   return(
@@ -14,7 +14,7 @@ function App() {
       {/* <Timer /> */}
 
       {/* tugas12 */}
-      <HitungMundur />
+      <ClockAndHitungMundur start={100}/>
     </div>
   )
 }

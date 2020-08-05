@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-class HitungMundur extends Component{
+class ClockAndHitungMundur extends Component{
   constructor(props){
     super(props)
     this.state = {
-      time: 100,
+      time: 0,
       date: new Date(),
     }
   }
@@ -57,4 +57,4 @@ class HitungMundur extends Component{
   }
 }
 
-export default HitungMundur
+export default ClockAndHitungMundur
