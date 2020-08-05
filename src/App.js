@@ -4,6 +4,7 @@ import DaftarBuah from './tugas11/DaftarBuah';
 import Timer from './timer/Timer';
 import ClockAndHitungMundur from './tugas12/ClockAndHitungMundur';
 import Lists from './materiWeek3/Lists';
+import DaftarBuahTugas13 from './tugas13/DaftarBuahTugas13';
 
 function App() {
   return(
@@ -18,7 +19,10 @@ function App() {
       {/* <ClockAndHitungMundur start={100}/> */}
 
       {/* Materi Hari ke 3, List */}
-      <Lists />
+      {/* <Lists /> */}
+
+      {/* tugas13 */}
+      <DaftarBuahTugas13 />
 
     </div>
   )
