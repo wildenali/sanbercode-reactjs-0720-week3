@@ -8,7 +8,24 @@ class Lists extends Component {
       pesertaLomba: [ 'Budi', 'Susi', 'Lala', 'Agung' ],
       inputName: ""
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange(event){
+    this.setState({ inputName: event.target.value })
+  }
+
+  handleSubmit(event){
+    event.preventDefault()
+    this.setState({
+      pesertaLomba: [...this.state.pesertaLomba, this.state.inputName],
+      inputName: ""
+    })
+  }
+
+
 
   render() {
     return (
