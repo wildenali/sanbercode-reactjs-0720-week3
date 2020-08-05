@@ -14,12 +14,28 @@ class Lists extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleEdit(event){
     let index = event.target.value
     let peserta = this.state.pesertaLomba[index]
     this.setState({inputName: peserta, indexOfForm: index})
+  }
+
+  handleDelete(event){
+    let index = event.target.value
+    let newPesertaLomba = this.state.pesertaLomba
+    let editedPeserta = newPesertaLomba[this.state.indexOfForm]
+    newPesertaLomba.splice(index, 1)
+
+    if (editedPeserta !== undefined) {
+      // array finIndex baru ada di ES6
+      var newIndex = newPesertaLomba.findIndex((el) => el === editedPeserta)
+      this.setState({pesertaLomba: newPesertaLomba, indexOfForm: newIndex})
+    } else {
+      this.setState({pesertaLomba: newPesertaLomba})
+    }
   }
 
   handleChange(event){
@@ -73,6 +89,8 @@ class Lists extends Component {
                     <td>{val}</td>
                     <td>
                       <button onClick={this.handleEdit} value={index}>Edit</button>
+                      &nbsp;
+                      <button onClick={this.handleDelete} value={index}>Delete</button>
                     </td>
                   </tr>
                 )
