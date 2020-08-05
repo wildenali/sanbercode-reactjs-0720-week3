@@ -3,18 +3,23 @@ import './App.css';
 import DaftarBuah from './tugas11/DaftarBuah';
 import Timer from './timer/Timer';
 import ClockAndHitungMundur from './tugas12/ClockAndHitungMundur';
+import Lists from './materiWeek3/Lists';
 
 function App() {
   return(
     <div>
       {/* tugas11 */}
-      <DaftarBuah />
+      {/* <DaftarBuah /> */}
 
       {/* materi hari ke 2, timer component */}
       {/* <Timer /> */}
 
       {/* tugas12 */}
-      <ClockAndHitungMundur start={100}/>
+      {/* <ClockAndHitungMundur start={100}/> */}
+
+      {/* Materi Hari ke 3, List */}
+      <Lists />
+
     </div>
   )
 }
