@@ -33,6 +33,13 @@ class Lists extends Component {
            }
          </tbody>
        </tabel>
+       <form>
+         <label>
+           Masukkan nama peserta:
+         </label>
+         <input type="text" />
+         <input type="submit" value="Submit"/>
+       </form>
       </>
     )
   }
