@@ -5,6 +5,7 @@ import Timer from './timer/Timer';
 import ClockAndHitungMundur from './tugas12/ClockAndHitungMundur';
 import Lists from './materiWeek3/Lists';
 import DaftarBuahTugas13 from './tugas13/DaftarBuahTugas13';
+import HooksAndAxios from './materiWeek3/HooksAndAxios';
 
 function App() {
   return(
@@ -22,7 +23,10 @@ function App() {
       {/* <Lists /> */}
 
       {/* tugas13 */}
-      <DaftarBuahTugas13 />
+      {/* <DaftarBuahTugas13 /> */}
+
+      {/* Materi Hari ke 4, Hooks dan Axios */}
+      <HooksAndAxios />
 
     </div>
   )
