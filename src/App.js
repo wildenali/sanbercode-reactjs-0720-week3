@@ -6,6 +6,7 @@ import ClockAndHitungMundur from './tugas12/ClockAndHitungMundur';
 import Lists from './materiWeek3/Lists';
 import DaftarBuahTugas13 from './tugas13/DaftarBuahTugas13';
 import HooksAndAxios from './materiWeek3/HooksAndAxios';
+import Hooks_useEffect from './materiWeek3/Hooks_useEffect';
 
 function App() {
   return(
@@ -27,6 +28,7 @@ function App() {
 
       {/* Materi Hari ke 4, Hooks dan Axios */}
       <HooksAndAxios />
+      <Hooks_useEffect />
 
     </div>
   )
