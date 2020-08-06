@@ -50,7 +50,7 @@ const HooksAndAxios = () => {
   const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
 
   return (
-    <div>
+    <>
       <h1>Daftar Peserta Lomba</h1>
       <table>
         <thead>
@@ -67,16 +67,18 @@ const HooksAndAxios = () => {
                 <tr key={index}>
                   <td>{index+1}</td>
                   <td>{val}</td>
-                  <button>Edit</button>
-                  &nbsp;
-                  <button>Edit</button>
+                  <td>
+                    <button value={index}>Edit</button>
+                    &nbsp;
+                    <button value={index}>Delete</button>
+                  </td>
                 </tr>
               )
             })
           }
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 export default HooksAndAxios
