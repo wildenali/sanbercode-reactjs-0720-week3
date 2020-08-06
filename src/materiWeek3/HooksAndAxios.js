@@ -83,41 +83,47 @@ const HooksAndAxios = () => {
 
     if (name.replace(/\s/g,'') !== "") {
       let newPesertaLomba = pesertaLomba
-      console.log(pesertaLomba)
-      // let index = indexOfForm
+      // console.log(pesertaLomba)
+      let index = indexOfForm
 
-      // if (index === -1) {
-      //   newPesertaLomba = [...newPesertaLomba, name]
-      // } else {
-      //   newPesertaLomba[index] = name
-      // }
-      // setPesertaLomba(newPesertaLomba)
+      if (index === -1) {
+        newPesertaLomba = [...newPesertaLomba, {id: index, nama: name}]
+      } else {
+        newPesertaLomba[index] = {id: index, nama: name}
+      }
+
+      axios.post(`http://backendexample.sanbercloud.com/api/contestants`, {id: index, name})
+        .then(res => {
+          console.log(res)
+        }
+      )
+
+      setPesertaLomba(newPesertaLomba)
       setInputName("")
     }
     
   }
 
   const handleDelete = (event) => {
-    let index = event.target.value
-    let newPesertaLomba = pesertaLomba
-    let editedPeserta = newPesertaLomba[indexOfForm]
-    newPesertaLomba.splice(index, 1)
+    let idPeserta = parseInt(event.target.value)
 
-    if (editedPeserta !== undefined) {
-      // array findIndex baru di ES6
-      var newIndex = newPesertaLomba.findIndex((el) => el === editedPeserta)
-      setPesertaLomba([...newPesertaLomba])
-      setIndexOfForm(newIndex)
-    } else {
-      setPesertaLomba([...newPesertaLomba])
-    }
+    let newPesertaLomba = pesertaLomba.filter(el => el.id != idPeserta)
+
+    axios.delete(`http://backendexample.sanbercloud.com/api/contestants`, {id: idPeserta})
+      .then(res => {
+        console.log(res)
+      }
+    )
+
+    setPesertaLomba([...newPesertaLomba])
   }
   
   const handleEdit = (event) => {
-    let index = event.target.value
-    let peserta = pesertaLomba[index]
-    setInputName(peserta)
-    setIndexOfForm(index)
+    let idPeserta = parseInt(event.target.value)
+    let peserta = pesertaLomba.find(x => x.id === idPeserta)
+    console.log(peserta)
+    setInputName(peserta.nama)
+    // setIndexOfForm(index)
   }
 
   return (
@@ -136,12 +142,12 @@ const HooksAndAxios = () => {
             pesertaLomba !== null && pesertaLomba.map((item, index) => {
               return(
                 <tr key={index}>
-                  <td>{index+1}</td>
+                  <td>{item.id}</td>
                   <td>{item.nama}</td>
                   <td>
-                    <button value={index} onClick={handleEdit}>Edit</button>
+                    <button value={item.id} onClick={handleEdit}>Edit</button>
                     &nbsp;
-                    <button value={index} onClick={handleDelete}>Delete</button>
+                    <button value={item.id} onClick={handleDelete}>Delete</button>
                   </td>
                 </tr>
               )
