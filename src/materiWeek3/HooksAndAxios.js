@@ -78,6 +78,14 @@ const HooksAndAxios = () => {
           }
         </tbody>
       </table>
+      <h1>Form Peserta</h1>
+      <form>
+        <label>
+          Masukkan nama peserta:
+        </label>          
+        <input type="text"/>
+        <button>submit</button>
+      </form>
     </>
   );
 }
