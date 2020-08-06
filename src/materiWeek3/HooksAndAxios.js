@@ -60,9 +60,20 @@ const HooksAndAxios = () => {
     // Menahan submit
     event.preventDefault()
     let name = inputName
-    let newPesertaLomba = [...pesertaLomba, name]
-    setPesertaLomba(newPesertaLomba)
-    setInputName("")
+
+    if (name.replace(/\s/g,'') !== "") {
+      let newPesertaLomba = pesertaLomba
+      let index = indexOfForm
+
+      if (index === -1) {
+        newPesertaLomba = [...newPesertaLomba, name]
+      } else {
+        newPesertaLomba[index] = name
+      }
+      setPesertaLomba(newPesertaLomba)
+      setInputName("")
+    }
+    
   }
 
   const handleDelete = (event) => {
@@ -81,6 +92,12 @@ const HooksAndAxios = () => {
     }
   }
   
+  const handleEdit = (event) => {
+    let index = event.target.value
+    let peserta = pesertaLomba[index]
+    setInputName(peserta)
+    setIndexOfForm(index)
+  }
 
   return (
     <>
@@ -101,7 +118,7 @@ const HooksAndAxios = () => {
                   <td>{index+1}</td>
                   <td>{val}</td>
                   <td>
-                    <button value={index}>Edit</button>
+                    <button value={index} onClick={handleEdit}>Edit</button>
                     &nbsp;
                     <button value={index} onClick={handleDelete}>Delete</button>
                   </td>
