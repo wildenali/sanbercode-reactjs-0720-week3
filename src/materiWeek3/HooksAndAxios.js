@@ -48,6 +48,22 @@ import "./HooksAndAxios.css"
 const HooksAndAxios = () => {
   // Deklarasi variable state baru ygn kita sebut "count"
   const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
+  const [inputName, setInputName] = useState('')
+
+  const handleChange = (event) => {
+    console.log(handleChange)
+    setInputName(event.target.value);
+  }
+  
+  const handleSubmit = (event) => {
+    // Menahan submit
+    event.preventDefault()
+    let name = inputName
+    let newPesertaLomba = [...pesertaLomba, name]
+    setPesertaLomba(newPesertaLomba)
+    setInputName("")
+  }
+  
 
   return (
     <>
@@ -79,11 +95,11 @@ const HooksAndAxios = () => {
         </tbody>
       </table>
       <h1>Form Peserta</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Masukkan nama peserta:
         </label>          
-        <input type="text"/>
+        <input type="text" value={inputName} onChange={handleChange}/>
         <button>submit</button>
       </form>
     </>
