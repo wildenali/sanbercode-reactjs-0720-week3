@@ -24,6 +24,7 @@ export default HooksAndAxios
 */
 
 // Contoh Component dengan Hooks
+/*
 import React, { useState } from 'react'
 
 const HooksAndAxios = () => {
@@ -34,6 +35,47 @@ const HooksAndAxios = () => {
     <div>
       <p>ANda menekan sebanyak {count} kali</p>
       <button onClick={() => setCount(count + 1)}>Klik Saya</button>
+    </div>
+  );
+}
+export default HooksAndAxios
+*/
+
+// Contoh kasus Hooks pada Latihan Peserta Lomba
+import React, { useState } from 'react'
+import "./HooksAndAxios.css"
+
+const HooksAndAxios = () => {
+  // Deklarasi variable state baru ygn kita sebut "count"
+  const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
+
+  return (
+    <div>
+      <h1>Daftar Peserta Lomba</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            pesertaLomba.map((val, index) => {
+              return(
+                <tr key={index}>
+                  <td>{index+1}</td>
+                  <td>{val}</td>
+                  <button>Edit</button>
+                  &nbsp;
+                  <button>Edit</button>
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </table>
     </div>
   );
 }
