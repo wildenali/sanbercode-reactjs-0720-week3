@@ -50,7 +50,8 @@ const HooksAndAxios = () => {
   // Deklarasi variable state baru
   const [pesertaLomba, setPesertaLomba] = useState(null)  // const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
   const [inputName, setInputName] = useState('')
-  const [indexOfForm, setIndexOfForm] = useState(-1)
+  const [selectedId, setSelectedId]  =  useState(0)
+  const [statusForm, setStatusForm]  =  useState("create")
 
   useEffect( () => {
     if (pesertaLomba === null) {
@@ -81,24 +82,23 @@ const HooksAndAxios = () => {
     event.preventDefault()
     let name = inputName
 
-    if (name.replace(/\s/g,'') !== "") {
-      let newPesertaLomba = pesertaLomba
-      // console.log(pesertaLomba)
-      let index = indexOfForm
-
-      if (index === -1) {
-        newPesertaLomba = [...newPesertaLomba, {id: index, nama: name}]
-      } else {
-        newPesertaLomba[index] = {id: index, nama: name}
-      }
-
-      axios.post(`http://backendexample.sanbercloud.com/api/contestants`, {id: index, name})
+    if (name.replace(/\s/g,'') !== ""){      
+      if (statusForm === "create"){        
+        axios.post(`http://backendexample.sanbercloud.com/api/contestants`, {name})
         .then(res => {
-          console.log(res)
-        }
-      )
-
-      setPesertaLomba(newPesertaLomba)
+            setPesertaLomba([...pesertaLomba, {id: res.data.id, nama: name}])
+        })
+      }else if(statusForm === "edit"){
+        axios.put(`http://backendexample.sanbercloud.com/api/contestants/${selectedId}`, {name})
+        .then(res => {
+            let dataPeserta = pesertaLomba.find(el=> el.id === selectedId)
+            dataPeserta.nama = name
+            setPesertaLomba([...pesertaLomba])
+        })
+      }
+      
+      setStatusForm("create")
+      setSelectedId(0)
       setInputName("")
     }
     
@@ -118,13 +118,14 @@ const HooksAndAxios = () => {
     setPesertaLomba([...newPesertaLomba])
   }
   
-  const handleEdit = (event) => {
+  const handleEdit = (event) =>{
     let idPeserta = parseInt(event.target.value)
-    let peserta = pesertaLomba.find(x => x.id === idPeserta)
-    console.log(peserta)
+    let peserta = pesertaLomba.find(x=> x.id === idPeserta)
     setInputName(peserta.nama)
-    // setIndexOfForm(index)
+    setSelectedId(idPeserta)
+    setStatusForm("edit")
   }
+
 
   return (
     <>
