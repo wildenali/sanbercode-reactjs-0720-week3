@@ -109,7 +109,7 @@ const HooksAndAxios = () => {
 
     let newPesertaLomba = pesertaLomba.filter(el => el.id != idPeserta)
 
-    axios.delete(`http://backendexample.sanbercloud.com/api/contestants`, {id: idPeserta})
+    axios.delete(`http://backendexample.sanbercloud.com/api/contestants/${idPeserta}`)
       .then(res => {
         console.log(res)
       }
