@@ -7,6 +7,7 @@ import Lists from './materiWeek3/Lists';
 import DaftarBuahTugas13 from './tugas13/DaftarBuahTugas13';
 import HooksAndAxios from './materiWeek3/HooksAndAxios';
 import Hooks_useEffect from './materiWeek3/Hooks_useEffect';
+import HargaBuahWithAxios from './tugas14/HargaBuahWithAxios';
 
 function App() {
   return(
@@ -27,8 +28,11 @@ function App() {
       {/* <DaftarBuahTugas13 /> */}
 
       {/* Materi Hari ke 4, Hooks dan Axios */}
-      <HooksAndAxios />
-      <Hooks_useEffect />
+      {/* <HooksAndAxios /> */}
+      {/* <Hooks_useEffect /> */}
+
+      {/* tugas14 */}
+      <HargaBuahWithAxios />
 
     </div>
   )
