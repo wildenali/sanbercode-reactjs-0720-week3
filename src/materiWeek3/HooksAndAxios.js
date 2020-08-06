@@ -49,6 +49,7 @@ const HooksAndAxios = () => {
   // Deklarasi variable state baru ygn kita sebut "count"
   const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
   const [inputName, setInputName] = useState('')
+  const [indexOfForm, setIndexOfForm] = useState(-1)
 
   const handleChange = (event) => {
     console.log(handleChange)
@@ -62,6 +63,22 @@ const HooksAndAxios = () => {
     let newPesertaLomba = [...pesertaLomba, name]
     setPesertaLomba(newPesertaLomba)
     setInputName("")
+  }
+
+  const handleDelete = (event) => {
+    let index = event.target.value
+    let newPesertaLomba = pesertaLomba
+    let editedPeserta = newPesertaLomba[indexOfForm]
+    newPesertaLomba.splice(index, 1)
+
+    if (editedPeserta !== undefined) {
+      // array findIndex baru di ES6
+      var newIndex = newPesertaLomba.findIndex((el) => el === editedPeserta)
+      setPesertaLomba([...newPesertaLomba])
+      setIndexOfForm(newIndex)
+    } else {
+      setPesertaLomba([...newPesertaLomba])
+    }
   }
   
 
@@ -86,7 +103,7 @@ const HooksAndAxios = () => {
                   <td>
                     <button value={index}>Edit</button>
                     &nbsp;
-                    <button value={index}>Delete</button>
+                    <button value={index} onClick={handleDelete}>Delete</button>
                   </td>
                 </tr>
               )
