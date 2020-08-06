@@ -42,15 +42,31 @@ export default HooksAndAxios
 */
 
 // Contoh kasus Hooks pada Latihan Peserta Lomba
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./HooksAndAxios.css"
+import axios from 'axios'
 
 const HooksAndAxios = () => {
   // Deklarasi variable state baru ygn kita sebut "count"
-  const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
+  const [pesertaLomba, setPesertaLomba] = useState([])  // const [pesertaLomba, setPesertaLomba] = useState([ 'Budi', 'Susi', 'Lala', 'Agung' ])
   const [inputName, setInputName] = useState('')
   const [indexOfForm, setIndexOfForm] = useState(-1)
 
+  useEffect( () => {
+    axios.get(`http://backendexample.sanbercloud.com/api/contestants`)
+      .then(res => {
+        // Lakukan pengolahan data
+        console.log(res)
+        console.log(res.data)
+        setPesertaLomba(res.data.map(el => {
+          return {
+            id: el.id,
+            nama: el.name
+          }})
+        )
+      })
+  })
+  
   const handleChange = (event) => {
     console.log(handleChange)
     setInputName(event.target.value);
@@ -112,11 +128,11 @@ const HooksAndAxios = () => {
         </thead>
         <tbody>
           {
-            pesertaLomba.map((val, index) => {
+            pesertaLomba.map((item, index) => {
               return(
                 <tr key={index}>
                   <td>{index+1}</td>
-                  <td>{val}</td>
+                  <td>{item.nama}</td>
                   <td>
                     <button value={index} onClick={handleEdit}>Edit</button>
                     &nbsp;
