@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const HargaBuahWithAxios = () => {
-  const[daftarHargaBuah, setDaftarHargaBuah] = useState([
+  const[dataHargaBuah, setDataHargaBuah] = useState([
     {nama: "Semangka",    harga: 10000, berat: 1000},
     {nama: "Anggur",      harga: 40000, berat: 500},
     {nama: "Strawberry",  harga: 30000, berat: 500},
@@ -12,6 +12,25 @@ const HargaBuahWithAxios = () => {
   const[inputHarga, setInputHarga] = useState("")
   const[inputBerat, setInputBerat] = useState("")
   
+  const handleChangeNama = (event) => {
+    setInputNama(event.target.value)
+  }
+  const handleChangeHarga = (event) => {
+    setInputHarga(event.target.value)
+  }
+  const handleChangeBerat = (event) => {
+    setInputBerat(event.target.value)
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let dataBuah = dataHargaBuah
+
+    setDataHargaBuah([...dataBuah,{nama: inputNama, harga: inputHarga, berat: inputBerat}])
+    setInputNama("")
+    setInputHarga("")
+    setInputBerat("")
+
+  }
 
   return (
     <>
@@ -27,7 +46,7 @@ const HargaBuahWithAxios = () => {
           </thead>
           <tbody style= {{ backgroundColor: "coral" }}>
             {
-              daftarHargaBuah.map((item, index) => {
+              dataHargaBuah.map((item, index) => {
                 return(
                   <tr key={index}>
                     <td>{item.nama}</td>
@@ -45,13 +64,13 @@ const HargaBuahWithAxios = () => {
           </tbody>
       </table>
       <h1>Form Buah-Buahan</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           Masukkan Nama, Harga, Berat:
         </label>
-        <input type="text"/>
-        <input type="text"/>
-        <input type="text"/>
+        <input type="text" value={inputNama} onChange={handleChangeNama}/>
+        <input type="text" value={inputHarga} onChange={handleChangeHarga}/>
+        <input type="text" value={inputBerat} onChange={handleChangeBerat}/>
         <button>submit</button>
       </form>
     </>
