@@ -10,6 +10,7 @@ import Hooks_useEffect from './materiWeek3/Hooks_useEffect';
 import HargaBuahWithAxios from './tugas14/HargaBuahWithAxios';
 import Movie from './materiWeek3/Movie';
 import HargaBuahTugas15 from './tugas15/HargaBuahTugas15';
+import RouterDasar from './materiWeek3/RouterDasar';
 
 function App() {
   return(
@@ -38,9 +39,10 @@ function App() {
 
       {/* Materi Hari ke 5, Context */}
       {/* <Movie /> */}
+      <RouterDasar />
 
       {/* tugas15 */}
-      <HargaBuahTugas15 />
+      {/* <HargaBuahTugas15 /> */}
 
     </div>
   )
