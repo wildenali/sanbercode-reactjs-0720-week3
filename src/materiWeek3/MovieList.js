@@ -6,6 +6,7 @@ const MovieList = () =>{
 
   return(
     <ul>
+      {console.log(movie)}
       {movie.map(el=>{
         return <li>name: {el.name} {el.lengthOfTime} minutes</li>
       })}
