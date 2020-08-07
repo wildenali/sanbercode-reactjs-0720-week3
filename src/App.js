@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import DaftarBuah from './tugas11/DaftarBuah';
 import Timer from './timer/Timer';
@@ -11,10 +12,11 @@ import HargaBuahWithAxios from './tugas14/HargaBuahWithAxios';
 import Movie from './materiWeek3/Movie';
 import HargaBuahTugas15 from './tugas15/HargaBuahTugas15';
 import RouterDasar from './materiWeek3/RouterDasar';
+import Routes from './materiWeek3/Routes';
 
 function App() {
   return(
-    <div>
+    <Router>
       {/* tugas11 */}
       {/* <DaftarBuah /> */}
 
@@ -39,12 +41,13 @@ function App() {
 
       {/* Materi Hari ke 5, Context */}
       {/* <Movie /> */}
-      <RouterDasar />
+      {/* <RouterDasar /> */}
+      <Routes />
 
       {/* tugas15 */}
       {/* <HargaBuahTugas15 /> */}
 
-    </div>
+    </Router>
   )
 }
 
