@@ -13,7 +13,7 @@ const HargaBuahWithAxios = () => {
     if(dataHargaBuah === null){
         axios.get(`http://backendexample.sanbercloud.com/api/fruits`)
         .then(res => {
-          setDataHargaBuah(res.data.map(el=>{return {id: el.id, nama: el.name, harga:el.price, berat:el.weight}}))
+          setDataHargaBuah(res.data.map(el=>{return {id: el.id, name: el.name, price:el.price, weight:el.weight}}))
         })
     }
   },[dataHargaBuah])
@@ -44,9 +44,9 @@ const HargaBuahWithAxios = () => {
           axios.put(`http://backendexample.sanbercloud.com/api/fruits/${selectedId}`, {name, price, weight})
             .then(res => {
               let dataBuah = dataHargaBuah.find(el => el.id === selectedId)
-                dataBuah.nama = name
-                dataBuah.harga = price
-                dataBuah.berat = weight
+                dataBuah.name = name
+                dataBuah.price = price
+                dataBuah.weight = weight
                 setDataHargaBuah([...dataHargaBuah])
               })
         }
@@ -63,9 +63,9 @@ const HargaBuahWithAxios = () => {
     let buah = dataHargaBuah.find(x => x.id === idBuah)
     console.log(idBuah)
     console.log(buah)
-    setInputNama(buah.nama)
-    setInputHarga(buah.harga)
-    setInputBerat(buah.berat)
+    setInputNama(buah.name)
+    setInputHarga(buah.price)
+    setInputBerat(buah.weight)
     setSelectedId(idBuah)
     setStatusForm("edit")
   }
@@ -97,9 +97,9 @@ const HargaBuahWithAxios = () => {
               dataHargaBuah !== null && dataHargaBuah.map((item, index) => {
                 return(
                   <tr key={index}>
-                    <td>{item.nama}</td>
-                    <td>{item.harga}</td>
-                    <td>{item.berat/1000+' kg'}</td>
+                    <td>{item.name}</td>
+                    <td>{item.price}</td>
+                    <td>{item.weight/1000+' kg'}</td>
                     <td>
                       <button value={item.id} onClick={handleEdit}>Edit</button>
                       &nbsp;
@@ -116,9 +116,9 @@ const HargaBuahWithAxios = () => {
         <label>
           Masukkan Nama, Harga, Berat:
         </label>
-        <input type="text" value={inputNama} onChange={handleChangeNama}/>
-        <input type="text" value={inputHarga} onChange={handleChangeHarga}/>
-        <input type="text" value={inputBerat} onChange={handleChangeBerat}/>
+        <input type="text" name = 'name' value={inputNama} onChange={handleChangeNama}/>
+        <input type="text" name = 'price' value={inputHarga} onChange={handleChangeHarga}/>
+        <input type="text" name = 'weight' value={inputBerat} onChange={handleChangeBerat}/>
         <button>submit</button>
       </form>
     </>

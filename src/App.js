@@ -33,10 +33,10 @@ function App() {
       {/* <Hooks_useEffect /> */}
 
       {/* tugas14 */}
-      {/* <HargaBuahWithAxios /> */}
+      <HargaBuahWithAxios />
 
       {/* Materi Hari ke 5, Context */}
-      <Movie />
+      {/* <Movie /> */}
 
     </div>
   )
