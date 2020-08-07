@@ -13,6 +13,7 @@ import Movie from './materiWeek3/Movie';
 import HargaBuahTugas15 from './tugas15/HargaBuahTugas15';
 import RouterDasar from './materiWeek3/RouterDasar';
 import Routes from './materiWeek3/Routes';
+import RoutesTugas15 from './tugas15/RoutesTugas15';
 
 function App() {
   return(
@@ -42,10 +43,11 @@ function App() {
       {/* Materi Hari ke 5, Context */}
       {/* <Movie /> */}
       {/* <RouterDasar /> */}
-      <Routes />
+      {/* <Routes /> */}
 
       {/* tugas15 */}
       {/* <HargaBuahTugas15 /> */}
+      <RoutesTugas15 />
 
     </Router>
   )
