@@ -109,9 +109,11 @@ class DaftarBuahTugas13 extends Component {
                     <td>{el.nama}</td>
                     <td>{el.harga}</td>
                     <td>{el.berat/1000+' kg'}</td>
-                    <button onClick={this.handleEdit} value={index}>Edit</button>
-                    &nbsp;
-                    <button onClick={this.handleDelete} value={index}>Delete</button>
+                    <td>
+                      <button onClick={this.handleEdit} value={index}>Edit</button>
+                      &nbsp;
+                      <button onClick={this.handleDelete} value={index}>Delete</button>
+                    </td>
                   </tr>
                 )
               })
